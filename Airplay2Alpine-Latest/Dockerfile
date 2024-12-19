@@ -4,7 +4,7 @@ RUN apk update && apk add --no-cache \
     alsa-lib-dev autoconf automake avahi-dev build-base dbus \
     ffmpeg-dev git libconfig-dev libgcrypt-dev libplist-dev \
     libressl-dev libsndfile-dev libsodium-dev libtool mosquitto-dev \
-    popt-dev pulseaudio-dev soxr-dev xxd libdaemon-dev
+    popt-dev pulseaudio-dev soxr-dev xxd libdaemon-dev libstdc++
 
 
 ##### ALAC #####
@@ -69,6 +69,8 @@ RUN apk update && apk add --no-cache \
         popt \
         soxr \
         supervisor \
+        libstdc++ \
+        libressl3.8-libssl \
         jq
 
 # Copy build files.
