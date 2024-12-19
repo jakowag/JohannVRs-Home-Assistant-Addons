@@ -1,6 +1,6 @@
-name: "Airplay 2 for Home Assistant (Alpine)"
+name: "Airplay 2 for Home Assistant (Alpine-Latest)"
 description: "Adds Airplay 2 capabilities to Home Assistant - allows to interchange output backends"
-url: https://github.com/jakowag/JohannVRs-Home-Assistant-Addons/tree/main/Airplay2Alpine-latest
+url: https://github.com/jakowag/JohannVRs-Home-Assistant-Addons/tree/main/Airplay2Alpine-Latest
 version: "0.1.0"
 slug: "airplay2alpine-latest"
 init: false
