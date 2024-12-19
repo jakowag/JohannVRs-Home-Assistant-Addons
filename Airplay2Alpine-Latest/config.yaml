@@ -1,8 +1,8 @@
-name: "Airplay 2 for Home Assistant"
-description: "Adds Airplay 2 capabilities to Home Assistant - Alsa backend"
-url: https://github.com/jakowag/JohannVRs-Home-Assistant-Addons/tree/main/Airplay2
+name: "Airplay 2 for Home Assistant (Alpine)"
+description: "Adds Airplay 2 capabilities to Home Assistant - allows to interchange output backends"
+url: https://github.com/jakowag/JohannVRs-Home-Assistant-Addons/tree/main/Airplay2Alpine-latest
 version: "0.1.0"
-slug: "airplay2"
+slug: "airplay2alpine-latest"
 init: false
 arch:
   - aarch64
@@ -12,7 +12,8 @@ boot: "auto"
 host_network: true
 audio: true
 options:
-  airplay_name: "Hass.io"
+  airplay_name: "Home Assistant"
+  output_backend: "pa"
   offset: "0.0"
   enabled: "no"
   mqtt_host: "core-mosquitto"
@@ -21,10 +22,10 @@ options:
   mqtt_publish_cover: "no"
 schema:
   airplay_name: str
+  output_backend: str
   offset: str
   enabled: str
   mqtt_host: str
   mqtt_username: str
   mqtt_password: password
   mqtt_publish_cover: str
-#image: "johannvr/ha-airplay2-{arch}-debian"
