@@ -99,11 +99,11 @@ RUN rm -rf /var/cache/apk/*
 COPY supervisord.conf /etc/supervisor/supervisord.conf
 RUN mkdir -p /var/log/supervisor
 
+RUN mkdir -p /var/run/dbus && chmod 755 /var/run/dbus
+
 COPY apply-config.sh apply-config.sh
 COPY shairport-sync.conf /etc/shairport-sync.conf
-COPY start-dbus.sh start-dbus.sh
 RUN chmod +x apply-config.sh
-RUN chmod +x start-dbus.sh
 
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
