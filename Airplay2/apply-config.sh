@@ -154,10 +154,10 @@ quoted_value="\"$escaped_value\""
 # Replace line in config file using sed (target 9th line)
 sed -i "287s/.*/        publish_cover = $quoted_value/" "$config_file"
 
-################################################### audio backend ###################################################
+# ################################################### audio backend ###################################################
 
-# Replace line in config file using sed (target 9th line)
-sed -i "19s/.*/        output_backend = \"alsa\"/" "$config_file"
+# # Replace line in config file using sed (target 9th line)
+# sed -i "19s/.*/        output_backend = \"alsa\"/" "$config_file"
 
-##########################
-fi
+# ##########################
+# fi
