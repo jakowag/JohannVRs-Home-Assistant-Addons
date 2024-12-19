@@ -22,7 +22,6 @@ RUN apk -U add \
         soxr-dev \
         xxd \
         libdaemon-dev \
-	libstdc++ \
 
 ##### ALAC #####
 RUN git clone https://github.com/mikebrady/alac
