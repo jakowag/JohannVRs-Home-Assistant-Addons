@@ -1,27 +1,11 @@
 FROM alpine:3.20.1 AS builder
 
-RUN apk -U add \
-        alsa-lib-dev \
-        autoconf \
-        automake \
-        avahi-dev \
-        build-base \
-        dbus \
-        ffmpeg-dev \
-        git \
-        libconfig-dev \
-        libgcrypt-dev \
-        libplist-dev \
-        libressl-dev \
-        libsndfile-dev \
-        libsodium-dev \
-        libtool \
-        mosquitto-dev \
-        popt-dev \
-        pulseaudio-dev \
-        soxr-dev \
-        xxd \
-        libdaemon-dev \
+RUN apk update && apk add --no-cache \
+    alsa-lib-dev autoconf automake avahi-dev build-base dbus \
+    ffmpeg-dev git libconfig-dev libgcrypt-dev libplist-dev \
+    libressl-dev libsndfile-dev libsodium-dev libtool mosquitto-dev \
+    popt-dev pulseaudio-dev soxr-dev xxd libdaemon-dev
+
 
 ##### ALAC #####
 RUN git clone https://github.com/mikebrady/alac
@@ -60,7 +44,7 @@ WORKDIR /
 # Shairport Sync Runtime System
 FROM alpine:3.20.1
 
-RUN apk -U add \
+RUN apk update && apk add --no-cache \
         alsa-lib \
         alsa-plugins-pulse \
         avahi \
@@ -75,7 +59,7 @@ RUN apk -U add \
         libgcrypt \
         libplist \
         libpulse \
-        libressl3.6-libcrypto \
+        libressl \
         libsndfile \
         libsodium \
         libuuid \
@@ -108,6 +92,7 @@ RUN addgroup -g 29 docker_audio && addgroup shairport-sync docker_audio && addgr
 
 # Remove anything we don't need.
 RUN rm -rf /lib/apk/db/*
+RUN rm -rf /var/cache/apk/*
 
 COPY supervisord.conf /etc/supervisor/supervisord.conf
 RUN mkdir -p /var/log/supervisor
