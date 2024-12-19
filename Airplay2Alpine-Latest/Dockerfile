@@ -1,7 +1,7 @@
 FROM alpine:3.20.1 AS builder
 
 RUN apk update && apk add --no-cache \
-    alsa-lib-dev autoconf automake avahi-dev build-base dbus \
+    alsa-lib-dev autoconf automake avahi-dev build-base \
     ffmpeg-dev git libconfig-dev libgcrypt-dev libplist-dev \
     libressl-dev libsndfile-dev libsodium-dev libtool mosquitto-dev \
     popt-dev pulseaudio-dev soxr-dev xxd libdaemon-dev libstdc++
@@ -101,7 +101,10 @@ RUN mkdir -p /var/log/supervisor
 
 COPY apply-config.sh apply-config.sh
 COPY shairport-sync.conf /etc/shairport-sync.conf
+COPY start-dbus.sh start-dbus.sh
 RUN chmod +x apply-config.sh
+RUN chmod +x start-dbus.sh
+
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
 
