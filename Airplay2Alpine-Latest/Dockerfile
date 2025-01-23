@@ -34,7 +34,7 @@ RUN autoreconf -i ../
 RUN ../configure --sysconfdir=/etc --with-alsa --with-pa --with-soxr --with-avahi --with-ssl=openssl \
         --with-airplay-2 --with-metadata --with-dbus-interface \
         --with-stdout --with-mpris-interface --with-mqtt-client \
-        --with-apple-ala
+        --with-apple-alac
 RUN make
 #RUN make -j $(nproc)
 RUN DESTDIR=install make install
